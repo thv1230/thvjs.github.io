@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户登录页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            font-size: 35px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 200px;
+            font-size: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 35px;
+            cursor: pointer;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>用户登录</h1>
+    <input type="text" id="username" placeholder="用户名" required />
+    <input type="password" id="password" placeholder="密码" required />
+    <button id="loginBtn">登录</button>
+    <div id="message"></div>
+
+    <script>
+
+        class UserModel {
+            constructor() {
+                this.username = '';
+                this.password = '';
+            }
+
+            setUserData(username, password) {
+                this.username = username;
+                this.password = password;
+            }
+
+            validateUser() {
+  
+                return this.username === '123' && this.password === '123';
+            }
+        }
+
+        class UserUI {
+            constructor() {
+                this.usernameInput = document.getElementById("username");
+                this.passwordInput = document.getElementById("password");
+                this.loginBtn = document.getElementById("loginBtn");
+                this.messageDiv = document.getElementById("message");
+            }
+
+            getUserInput() {
+                return {
+                    username: this.usernameInput.value,
+                    password: this.passwordInput.value,
+                };
+            }
+
+            displayMessage(message) {
+                this.messageDiv.innerText = message;
+            }
+
+            clearInputs() {
+                this.usernameInput.value = '';
+                this.passwordInput.value = '';
+            }
+
+            bindLogin(handler) {
+                this.loginBtn.addEventListener("click", handler);
+            }
+        }
+
+        class UserController {
+            constructor(model, ui) {
+                this.model = model;
+                this.ui = ui;
+
+                this.ui.bindLogin(this.handleLogin.bind(this));
+            }
+
+            handleLogin() {
+                const { username, password } = this.ui.getUserInput();
+                this.model.setUserData(username, password);
+
+                if (this.model.validateUser()) {
+                    this.ui.displayMessage("登录成功！");
+
+                } else {
+                    this.ui.displayMessage("用户名或密码错误！");
+                }
+
+                this.ui.clearInputs(); 
+            }
+        }
+
+        const userModel = new UserModel();
+        const userUI = new UserUI();
+        const userController = new UserController(userModel, userUI);
+    </script>
+
+</body>
+</html>
