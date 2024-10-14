@@ -3,115 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>用户登录页面</title>
+    <title>User Login & Random Word Generator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 50px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 50%;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
-            margin-top: 50px;
-            font-size: 35px;
         }
         input {
+            width: 100%;
             padding: 10px;
+            font-size: 35px;
             margin: 10px 0;
-            width: 200px;
-            font-size: 50px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
         button {
-            padding: 10px 20px;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            color: white;
             font-size: 35px;
+            border-radius: 5px;
             cursor: pointer;
         }
-        #message {
+        button:disabled {
+            background-color: #ccc;
+        }
+        .hidden {
+            display: none;
+        }
+        .word-box {
             margin-top: 20px;
-            font-size: 18px;
-            color: red;
         }
     </style>
 </head>
 <body>
 
-    <h1>用户登录</h1>
-    <input type="text" id="username" placeholder="用户名" required />
-    <input type="password" id="password" placeholder="密码" required />
-    <button id="loginBtn">登录</button>
-    <div id="message"></div>
+<div class="container" id="loginContainer">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="用户名" required>
+    <input type="password" id="password" placeholder="密码" required>
+    <button id="loginBtn" onclick="login()">登录</button>
+    <p id="errorMessage" style="color: red;"></p>
+</div>
 
-    <script>
+<div class="container hidden" id="wordContainer">
+    <h2>Random Word Generator</h2>
+    <button id="generateWordBtn" onclick="generateRandomWord()">Generate Random Word</button>
+    <div class="word-box">
+        <h3>随机单词: <span id="randomWord"></span></h3>
+    </div>
+</div>
 
-        class UserModel {
-            constructor() {
-                this.username = '';
-                this.password = '';
-            }
+<script>
+    const users = {
+        "admin": "123",
+        "user1": "1234",
+        "user2": "2345"
+    };
 
-            setUserData(username, password) {
-                this.username = username;
-                this.password = password;
-            }
+    function login() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const errorMessage = document.getElementById('errorMessage');
 
-            validateUser() {
-  
-                return this.username === '123' && this.password === '123';
-            }
+        if (users[username] && users[username] === password) {
+            document.getElementById('loginContainer').classList.add('hidden');
+            document.getElementById('wordContainer').classList.remove('hidden');
+        } else {
+            errorMessage.textContent = '用户名或密码错误.';
         }
+    }
 
-        class UserUI {
-            constructor() {
-                this.usernameInput = document.getElementById("username");
-                this.passwordInput = document.getElementById("password");
-                this.loginBtn = document.getElementById("loginBtn");
-                this.messageDiv = document.getElementById("message");
-            }
+    function generateRandomWord() {
+        const words = ["apple", "banana", "cherry", "date", "elephant", "fig", "grape", "honeydew", "kiwi", "lemon"];
+        const randomIndex = Math.floor(Math.random() * words.length);
+        const randomWord = words[randomIndex];
 
-            getUserInput() {
-                return {
-                    username: this.usernameInput.value,
-                    password: this.passwordInput.value,
-                };
-            }
-
-            displayMessage(message) {
-                this.messageDiv.innerText = message;
-            }
-
-            clearInputs() {
-                this.usernameInput.value = '';
-                this.passwordInput.value = '';
-            }
-
-            bindLogin(handler) {
-                this.loginBtn.addEventListener("click", handler);
-            }
-        }
-
-        class UserController {
-            constructor(model, ui) {
-                this.model = model;
-                this.ui = ui;
-
-                this.ui.bindLogin(this.handleLogin.bind(this));
-            }
-
-            handleLogin() {
-                const { username, password } = this.ui.getUserInput();
-                this.model.setUserData(username, password);
-
-                if (this.model.validateUser()) {
-                    this.ui.displayMessage("登录成功！");
-
-                } else {
-                    this.ui.displayMessage("用户名或密码错误！");
-                }
-
-                this.ui.clearInputs(); 
-            }
-        }
-
-        const userModel = new UserModel();
-        const userUI = new UserUI();
-        const userController = new UserController(userModel, userUI);
-    </script>
+        document.getElementById('randomWord').textContent = randomWord;
+    }
+</script>
 
 </body>
 </html>
