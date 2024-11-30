@@ -1,0 +1,105 @@
+   *{
+        margin: 0;
+        box-sizing: border-box;
+        text-align: center;
+    }
+   body{
+     font-size: calc(10px+1vh);
+     height: 98vh ;    
+     position: relative;
+    }
+    header{font-size: 4em;
+           height: 15% ;
+           position: relative;
+           margin-top: 1em;
+    }
+    nav{ height: 6% ;}
+    nav button{
+        font-size: 2em;
+       }
+    button.small{
+        width: 30%;
+        padding: 0.1em 0.2em;  
+    }
+    button.big{
+        width: 45%;
+        padding: 0.1em 0.5em;  
+    }
+    main{
+        margin-top: 1em;
+        font-size: 2.5em;
+        height: 60% ;
+        position: relative;
+    }
+    main p#en{
+        font-size: 3em;
+        color:rgb(215, 173, 230);
+        text-shadow: 2px 2px gray ;
+    }
+    main p#pn{
+        font-size: 2em;
+        color:rgb(217, 194, 222);
+       }
+    form{
+        position: absolute ;
+        width: 100% ;
+        height: 50% ;
+        border: 2px solid gray;
+        top: 10% ;
+        background-color: rgb(241, 222, 231);
+        font-size: 2em ;
+    }
+    form input{
+        font-size: 2em ;
+        width: 6em;
+        margin: 0.5em;
+    }
+    form button{
+        font-size: 1.5em ;
+        margin-top: 1em;
+        margin-right: 1em;
+    }
+    footer{
+        height: 10% ;
+        font-size: 2em;
+    }
+    span#level{
+        display: block;
+        position: absolute;
+        right:20px;
+        top:1px;
+        color:rgb(170, 170, 247);
+        font-size: 1em;
+    }
+    p.cn{
+      border:1px solid rgb(134, 66, 176) ;
+      background-color: rgb(224, 182, 231);
+      cursor: pointer;
+      font-size: 1em;
+      margin-bottom: 0.2em;
+    }
+    p.cn.right{
+      background-color: rgb(231, 231, 173);
+      color: rgb(241, 105, 105) ;
+    }
+    p.cn.wrong{
+      background-color: gray;
+      color:white;
+    }
+    p.cn:hover{
+        color: rgb(132, 40, 171) ;
+    }
+    header span#response{
+        font-size: 0.8em;
+        color: red;
+        position: absolute;
+        right: 0.5em;
+        top:2em;
+    }
+    p#log{
+        background-color: gray;
+        color: white;
+        font-size: 1em;
+        padding: 5px 10px;
+        text-align: right;
+    }
