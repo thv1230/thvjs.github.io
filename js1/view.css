@@ -1,234 +1,114 @@
-* {
-    margin: 0;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-body {
-    font-size: calc(10px + 1vh);  /* 基于视口高度的动态字体大小 */
-    height: 98vh;    
-    position: relative;
-}
-
-header {
-    font-size: 2.5em;
-    height: 15%;
-    position: relative;
-    margin-top: 1em;
-}
-
-header p#status {
-    font-size: 0.6em;
-    color: rgb(215, 188, 231);
-}
-
-header p#status span {
-    font-size: 1.2em;
-    color: rgb(235, 189, 223);
-    font-weight: bold;
-}
-
-nav {
-    height: 6%;
-    margin-bottom:1.5em
-}
-
-nav button {
-    font-size: 1.5em;
-    margin-bottom:2em;
-}
-
-button.small {
-    width: 30%;
-    padding: 0.1em 0.2em;  
-}
-
-button.big {
-    width: 45%;
-    padding: 0.1em 0.5em;  
-}
-
-main {
-    margin-top: 1em;
-    font-size: 1.5em;
-    height: 60%;
-    position: relative;
-}
-
-main p#en {
-    font-size: 1.5em;
-    color: rgb(215, 173, 230);
-    text-shadow: 2px 2px gray;
-}
-
-main p#pn {
-    font-size: 1.5em;
-    color: rgb(217, 194, 222);
-}
-
-form {
-    position: absolute;
-    width: 100%;
-    border: 2px solid gray;
-    top: 10%;
-    background-color: rgb(241, 222, 231);
-    font-size: 1.5em;
-}
-
-form input {
-    font-size: 1.5em;
-    width: 6em;
-    margin: 0.5em;
-}
-
-form button {
-    font-size: 1.5em;
-    margin-top: 1em;
-    margin-right: 1em;
-}
-
-footer {
-    height: 10%;
-    font-size: 1em;
-}
-
-span#level {
-    display: block;
-    position: absolute;
-    right: 20px;
-    top: 1px;
-    color: rgb(170, 170, 247);
-    font-size: 1em;
-}
-
-p.cn {
-    border: 1px solid rgb(134, 66, 176);
-    background-color: rgb(224, 182, 231);
-    cursor: pointer;
-    font-size: 1em;
-    margin-bottom: 0.2em;
-}
-
-p.cn.right {
-    background-color: rgb(231, 231, 173);
-    color: rgb(241, 105, 105);
-}
-
-p.cn.wrong {
-    background-color: gray;
-    color: white;
-}
-
-p.cn:hover {
-    color: rgb(132, 40, 171);
-}
-
-header span#response {
-    font-size: 0.5em;
-    color: red;
-    position: absolute;
-    right: 0.5em;
-    top: 1em;
-}
-
-p#log {
-    background-color: gray;
-    color: white;
-    font-size: 1.5em;
-    padding: 5px 10px;
-    text-align: right;
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-    body {
-        font-size: calc(12px + 2vw);  /* 适应较小屏幕 */
+   *{
+        margin: 0;
+        box-sizing: border-box;
+        text-align: center;
     }
-
-    header {
-        font-size: 2em;
+   body{
+     font-size: calc(10px+1vh);
+     height: 98vh ;    
+     position: relative;
     }
-
-    header p#status {
-        font-size: 0.8em;
+    header{font-size: 2.5em;
+           height: 15% ;
+           position: relative;
+           margin-top: 1em;
     }
-
-    main {
+    header p#status{
+        font-size: 0.6em;
+        color: rgb(215, 188, 231);
+    }
+    header p#status span{
         font-size: 1.2em;
+        color: rgb(235, 189, 223) ;
+        font-weight: bold;
     }
-
-    main p#en,
-    main p#pn {
-        font-size: 1.2em;
+    nav{ height: 6% ;}
+    nav button{
+        font-size: 1.5em;
+       }
+    button.small{
+        width: 30%;
+        padding: 0.1em 0.2em;  
     }
-
-    form {
-        font-size: 1.2em;
+    button.big{
+        width: 45%;
+        padding: 0.1em 0.5em;  
     }
-
-    form input {
-        width: 5em;
+    main{
+        margin-top: 1em;
+        font-size: 1.5em;
+        height: 60% ;
+        position: relative;
     }
-
-    nav button {
-        font-size: 1.2em;
+    main p#en{
+        font-size: 1.5em;
+        color:rgb(215, 173, 230);
+        text-shadow: 2px 2px gray ;
     }
-
-    footer {
-        font-size: 0.8em;
+    main p#pn{
+        font-size: 1.5em;
+        color:rgb(217, 194, 222);
+       }
+    form{
+        position: absolute ;
+        width: 100% ;
+        height: 50% ;
+        border: 2px solid gray;
+        top: 10% ;
+        background-color: rgb(241, 222, 231);
+        font-size: 1.5em ;
     }
-
-    span#level {
-        font-size: 0.8em;
+    form input{
+        font-size: 1.5em ;
+        width: 6em;
+        margin: 0.5em;
     }
-
-    p.cn {
-        font-size: 0.9em;
+    form button{
+        font-size: 1.5em ;
+        margin-top: 1em;
+        margin-right: 1em;
     }
-
-    p#log {
-        font-size: 1.2em;
+    footer{
+        height: 10% ;
+        font-size: 1em;
     }
-}
-
-@media (max-width: 480px) {
-    body {
-        font-size: calc(14px + 2vw);  /* 更小屏幕时更大字体 */
+    span#level{
+        display: block;
+        position: absolute;
+        right:20px;
+        top:1px;
+        color:rgb(170, 170, 247);
+        font-size: 1em;
     }
-
-    header {
-        font-size: 1.8em;
+    p.cn{
+      border:1px solid rgb(134, 66, 176) ;
+      background-color: rgb(224, 182, 231);
+      cursor: pointer;
+      font-size: 1em;
+      margin-bottom: 0.2em;
     }
-
-    header p#status {
-        font-size: 0.7em;
+    p.cn.right{
+      background-color: rgb(231, 231, 173);
+      color: rgb(241, 105, 105) ;
     }
-
-    main {
-        font-size: 1.1em;
+    p.cn.wrong{
+      background-color: gray;
+      color:white;
     }
-
-    form input {
-        width: 4.5em;
+    p.cn:hover{
+        color: rgb(132, 40, 171) ;
     }
-
-    nav button {
-        font-size: 1.2em;
+    header span#response{
+        font-size: 0.5em;
+        color: red;
+        position: absolute;
+        right: 0.5em;
+        top:1em;
     }
-
-    footer {
-        font-size: 0.7em;
+    p#log{
+        background-color: gray;
+        color: white;
+        font-size: 1.5em;
+        padding: 5px 10px;
+        text-align: right;
     }
-
-    span#level {
-        font-size: 0.7em;
-    }
-
-    p.cn {
-        font-size: 0.8em;
-    }
-
-    p#log {
-        font-size: 1.1em;
-    }
-}
