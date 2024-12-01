@@ -156,9 +156,8 @@ UI.userStatus = function() {
             hard++;
         }
     }
-    let s = Model.user + '状态: ' + easy + '熟悉/' + normal + '一般/' + hard + '陌生';
-    select('p#title').textContent = s;
-    setTimeout(() => {
-        select('p#title').textContent = 'CET6-轻轻松松背单词';
-    }, 1000 * 10);
+    select('p#status span#user').textContent = Model.user ;
+    select('p#status span#easy').textContent = easy ;
+    select('p#status span#normal').textContent = normal ;
+    select('p#status span#hard').textContent = hard ;
 };

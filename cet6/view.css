@@ -8,14 +8,23 @@
      height: 98vh ;    
      position: relative;
     }
-    header{font-size: 4em;
+    header{font-size: 3em;
            height: 15% ;
            position: relative;
            margin-top: 1em;
     }
+    header p#status{
+        font-size: 0.6em;
+        color: rgb(215, 188, 231);
+    }
+    header p#status span{
+        font-size: 1.2em;
+        color: rgb(235, 189, 223) ;
+        font-weight: bold;
+    }
     nav{ height: 6% ;}
     nav button{
-        font-size: 2em;
+        font-size: 1.5em;
        }
     button.small{
         width: 30%;
@@ -27,17 +36,17 @@
     }
     main{
         margin-top: 1em;
-        font-size: 2.5em;
+        font-size: 1.5em;
         height: 60% ;
         position: relative;
     }
     main p#en{
-        font-size: 3em;
+        font-size: 1.5em;
         color:rgb(215, 173, 230);
         text-shadow: 2px 2px gray ;
     }
     main p#pn{
-        font-size: 2em;
+        font-size: 1.5em;
         color:rgb(217, 194, 222);
        }
     form{
@@ -47,10 +56,10 @@
         border: 2px solid gray;
         top: 10% ;
         background-color: rgb(241, 222, 231);
-        font-size: 2em ;
+        font-size: 1.5em ;
     }
     form input{
-        font-size: 2em ;
+        font-size: 1.5em ;
         width: 6em;
         margin: 0.5em;
     }
@@ -61,7 +70,7 @@
     }
     footer{
         height: 10% ;
-        font-size: 2em;
+        font-size: 1em;
     }
     span#level{
         display: block;
@@ -90,7 +99,7 @@
         color: rgb(132, 40, 171) ;
     }
     header span#response{
-        font-size: 0.8em;
+        font-size: 1em;
         color: red;
         position: absolute;
         right: 0.5em;
@@ -99,7 +108,7 @@
     p#log{
         background-color: gray;
         color: white;
-        font-size: 1em;
+        font-size: 1.5em;
         padding: 5px 10px;
         text-align: right;
     }
